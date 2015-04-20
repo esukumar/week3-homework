@@ -1,0 +1,17 @@
+<style>
+  h1 {
+    border-bottom: solid 3px gray;
+    margin-bottom: 24px;
+  }
+</style>
+
+<%= link_to "Add a New Place", "/places/new" %>
+<ul>
+  <% @places.each do |place| %>
+    <li>
+      <%= link_to place.title, "/places/#{place.id}" %>
+      (<%= place[:price]/100.0 %>)
+      <%= link_to "(delete)", "/places/#{place.id}/delete" %>
+    </li>
+  <% end %>
+</ul>
