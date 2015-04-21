@@ -23,7 +23,8 @@
 </style>
 
 <h2><%= @place.title %></h2>
+<%= link_to "Edit", "/places/#{@place.id}/edit" %>
 
-<%= image_tag @place.photo %>
+<%= image_tag(@place.photo) %>
 
 <p><%= @place.description %></p>
