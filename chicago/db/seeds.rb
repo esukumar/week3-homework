@@ -1,10 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+
 Place.delete_all
 [{:title => "Sears Tower", :photo => "http://upload.wikimedia.org/wikipedia/commons/b/ba/Sears_Tower_ss.jpg", :price => 0, :description => 'test'},
 {:title => "Trump Tower", :photo => "http://upload.wikimedia.org/wikipedia/commons/9/9a/20090518_Trump_International_Hotel_and_Tower,_Chicago.jpg", :price => 0, :description => 'test'},
@@ -19,3 +15,5 @@ Place.delete_all
   p.description = place_hash[:description]
   p.save
 end
+
+Review.delete_all

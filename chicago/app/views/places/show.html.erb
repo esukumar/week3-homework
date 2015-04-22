@@ -24,7 +24,30 @@
 
 <h2><%= @place.title %></h2>
 <%= link_to "Edit", "/places/#{@place.id}/edit" %>
-
-<%= image_tag(@place.photo) %>
+<br>
+Admission Price: <%=number_to_currency @place[:price]/100.0%>
+<br>
+<%= image_tag(@place.photo, height: '256', width: '256') %>
 
 <p><%= @place.description %></p>
+
+<br><br><br><br><br><br><br><br><br><br><br>
+<form action=<%="/places/#{@place.id}/review"%>>
+  <%=select_tag "rating", "<option>1 star</option><option>2 star</option><option>3 star</option><option>4 star</option><option>5 star</option>".html_safe%>
+  <input type="text" name="review_title" size="35">
+  <br><br>
+  <textarea name="review_description" rows="4" cols="50"></textarea>
+  <br>
+  <input type="submit"> 
+</form>
+
+<br>
+
+<ul class="list-unstyled">
+  <% @reviews.each do |review| %>
+    <li>
+      <%= raw("&#9733"*review.rating+" #{review.title}") %>
+      <%= simple_format "#{review.description}" %>
+    </li>
+  <% end %>
+</ul>

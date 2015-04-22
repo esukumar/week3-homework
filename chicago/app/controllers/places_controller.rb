@@ -24,6 +24,11 @@ class PlacesController < ApplicationController
     redirect_to "/"
   end
 
+  def review
+    Review.create(place_id: params["id"], title: params["review_title"], rating: params["rating"][0].to_i, description: params["review_description"])
+    redirect_to "/places/#{params["id"]}"
+  end
+
   def index
     @places = Place.all
   end
@@ -31,6 +36,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find_by(:id => params["id"])
     if @place != nil
+      @reviews = Review.where(place_id:params["id"]).order(id: :desc)
       render "show"
     else
       redirect_to "/", notice: "Movie not found."
