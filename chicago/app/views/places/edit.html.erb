@@ -2,16 +2,16 @@
 <br>
 <form action=<%="http://localhost:3000/places/#{@place.id}/update"%>>
 	Title:<br>
-	<input type="text" name="title" value="<%= @place.title %>">
+	<input type="text" name="title" value="<%= @place.title %>" size="100">
 	<br>
 	Photo URL:<br>
-	<input type="text" name="photo" value="<%= @place.photo %>">
+	<input type="text" name="photo" value="<%= @place.photo %>" size="100">
 	<br>	
 	Price:<br>
-	<input type="number" name="price" value=<%=@place.price/100.0%>>
+	<input type="text" name="price" value=<%=@place.price/100.0%> size="25">
 	<br>	
 	Description:<br>
-	<input type="text" name="description" value="<%= @place.description %>">
+	<textarea name="description" rows="6" cols="100"><%= @place.description %></textarea>
 	<br><br>
 	<input type="submit"> 
 </form>

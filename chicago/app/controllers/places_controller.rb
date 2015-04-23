@@ -1,5 +1,4 @@
 class PlacesController < ApplicationController
-
   def new
     render "new"
   end
@@ -21,7 +20,7 @@ class PlacesController < ApplicationController
     @place.price=params["price"].to_f*100.to_i
     @place.description=params["description"]
     @place.save
-    redirect_to "/"
+    redirect_to "/places/#{params["id"]}"
   end
 
   def review
